@@ -24,3 +24,11 @@ export async function createProduct(payload: CreateProductPayload): Promise<Prod
   const res = await axios.post<Product>(BASE_URL, payload);
   return res.data;
 }
+
+//update
+export async function updateProduct(id: number): Promise<{ id: number }> {
+  const response = await axios.put<{ id: number }>(
+    `${BASE_URL}/${id}`
+  );
+  return response.data;
+}
